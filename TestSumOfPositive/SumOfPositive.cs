@@ -1,10 +1,12 @@
-﻿namespace TestSumOfPositive
+﻿using System.Linq;
+
+namespace TestSumOfPositive
 {
     public class SumOfPositive
     {
         public int AddPositive(int[] ints)
         {
-            return 1;
+            return ints.Sum();
         }
     }
 }
