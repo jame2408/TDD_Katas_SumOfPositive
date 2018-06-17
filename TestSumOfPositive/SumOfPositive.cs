@@ -6,7 +6,7 @@ namespace TestSumOfPositive
     {
         public int AddPositive(int[] ints)
         {
-            return ints.Sum();
+            return ints.Where(x => x >= 0).Sum();
         }
     }
 }
