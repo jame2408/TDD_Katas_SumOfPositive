@@ -7,6 +7,8 @@ namespace TestSumOfPositive
     [TestClass]
     public class TestSumOfPositive
     {
+        private readonly SumOfPositive _target = new SumOfPositive();
+
         [TestMethod]
         public void Input_One_Positive_Number_Array_1_Should_Be_1()
         {
@@ -34,15 +36,14 @@ namespace TestSumOfPositive
         [TestMethod]
         public void Input_MaxInt_And_1_Should_Be_Overflow()
         {
-            Action act = () => new SumOfPositive().AddPositive(new[] { int.MaxValue, 1 });
+            Action act = () => _target.AddPositive(new[] { int.MaxValue, 1 });
 
             act.Should().Throw<OverflowException>();
         }
 
-        private static void AddShouldBe(int[] inputInts, int expected)
+        private void AddShouldBe(int[] inputInts, int expected)
         {
-            var sumOfPositive = new SumOfPositive();
-            Assert.AreEqual(expected, sumOfPositive.AddPositive(inputInts));
+            Assert.AreEqual(expected, _target.AddPositive(inputInts));
         }
     }
 }
