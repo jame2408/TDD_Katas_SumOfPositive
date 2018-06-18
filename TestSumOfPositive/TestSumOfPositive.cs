@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace TestSumOfPositive
 {
@@ -27,6 +29,14 @@ namespace TestSumOfPositive
         public void Input_Empty_Array()
         {
             AddShouldBe(new int[] { }, 0);
+        }
+
+        [TestMethod]
+        public void Input_MaxInt_And_1_Should_Be_Overflow()
+        {
+            Action act = () => new SumOfPositive().AddPositive(new[] { int.MaxValue, 1 });
+
+            act.Should().Throw<OverflowException>();
         }
 
         private static void AddShouldBe(int[] inputInts, int expected)
