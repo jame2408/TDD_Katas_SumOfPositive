@@ -23,6 +23,12 @@ namespace TestSumOfPositive
             AddShouldBe(new[] { 1, 3, -2 }, 4);
         }
 
+        [TestMethod]
+        public void Input_Empty_Array()
+        {
+            AddShouldBe(new int[] { }, 0);
+        }
+
         private static void AddShouldBe(int[] inputInts, int expected)
         {
             var sumOfPositive = new SumOfPositive();
